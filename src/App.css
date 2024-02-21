@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bodyApp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logOrSignContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.windowContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px;
+}
+
+.loginButton {
+  margin: 10px;
+}
