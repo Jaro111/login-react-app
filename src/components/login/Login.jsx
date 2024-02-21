@@ -18,7 +18,9 @@ const Login = () => {
     <div className="windowContainer">
       <input className="userNameInput" placeholder="user name" />
       <input className="passwordInput" placeholder="password" />
-      <button className="loginButton">Log In</button>
+      <button className="loginButton" onClick>
+        Log In
+      </button>
     </div>
   );
 };
