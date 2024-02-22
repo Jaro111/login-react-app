@@ -2,11 +2,11 @@ import React from "react";
 import Login from "../login/Login";
 import SignUp from "../SignUp/SignUp";
 
-const LogOrSign = () => {
+const LogOrSign = ({ setUser }) => {
   return (
     <div className="logOrSignContainer">
-      <Login />
-      <SignUp />
+      <Login setUser={setUser} />
+      <SignUp setUser={setUser} />
     </div>
   );
 };

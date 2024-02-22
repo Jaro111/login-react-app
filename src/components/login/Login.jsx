@@ -1,39 +1,37 @@
-import React from "react";
 import { useState } from "react";
-import getUser from "../../utils/fetch";
+import { login } from "../../utils/fetch";
 //
 //
-
-//
-
-const Login = () => {
+const Login = ({ setUser }) => {
   //
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   //
-  const changeHandler = (e, setter) => {
-    console.log(user);
-    console.log(password);
+  const changeHandler = (e, setter, state) => {
     setter(e.target.value);
   };
 
-  const handleSubmit = (user, password) => {
-    getUser(user, password);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Handle submit");
+    const data = await login(username, password);
+    setUser(data.user);
   };
 
   return (
     <div className="windowContainer">
-      <form onSubmit={() => handleSubmit(user, password)}>
+      <h3>Log in</h3>
+      <form onSubmit={handleSubmit}>
         <input
           className="userNameInput"
           placeholder="user name"
-          onChange={(e) => changeHandler(e, setUser)}
+          onChange={(e) => changeHandler(e, setUsername, username)}
         />
         <input
           className="passwordInput"
           placeholder="password"
-          onChange={(e) => changeHandler(e, setPassword)}
+          onChange={(e) => changeHandler(e, setPassword, password)}
         />
         <button type="submit" className="loginButton">
           Log In
