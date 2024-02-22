@@ -1,4 +1,6 @@
+import React from "react";
 import { useState } from "react";
+import getUser from "../../utils/fetch";
 //
 //
 
@@ -6,21 +8,37 @@ import { useState } from "react";
 
 const Login = () => {
   //
-  const [user, SetUser] = useState("");
-  const [password, SetPassword] = useState("");
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
 
   //
-  const changeHandler = () => {};
+  const changeHandler = (e, setter) => {
+    console.log(user);
+    console.log(password);
+    setter(e.target.value);
+  };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (user, password) => {
+    getUser(user, password);
+  };
 
   return (
     <div className="windowContainer">
-      <input className="userNameInput" placeholder="user name" />
-      <input className="passwordInput" placeholder="password" />
-      <button className="loginButton" onClick>
-        Log In
-      </button>
+      <form onSubmit={() => handleSubmit(user, password)}>
+        <input
+          className="userNameInput"
+          placeholder="user name"
+          onChange={(e) => changeHandler(e, setUser)}
+        />
+        <input
+          className="passwordInput"
+          placeholder="password"
+          onChange={(e) => changeHandler(e, setPassword)}
+        />
+        <button type="submit" className="loginButton">
+          Log In
+        </button>
+      </form>
     </div>
   );
 };
