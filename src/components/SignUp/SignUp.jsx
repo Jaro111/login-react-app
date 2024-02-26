@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signupuUser } from "../../utils/fetch";
 
-const SignUp = ({ setUser }) => {
+const SignUp = ({ setUser, setLog }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,10 +15,18 @@ const SignUp = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!username) {
+      return;
+    } else if (!email) {
+      return;
+    } else if (!password) {
+      return;
+    }
     console.log("Handle submit");
     const data = await signupuUser(username, email, password);
     console.log(data);
     setUser(data.user);
+    setLog(true);
   };
 
   //
