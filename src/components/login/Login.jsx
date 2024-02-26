@@ -3,7 +3,7 @@ import { login } from "../../utils/fetch";
 
 //
 //
-const Login = ({ setUser, setLog }) => {
+const Login = ({ setUser }) => {
   //
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +23,6 @@ const Login = ({ setUser, setLog }) => {
     console.log("Handle submit");
     const data = await login(username, password);
     setUser(data.user);
-    setLog(true);
   };
 
   return (

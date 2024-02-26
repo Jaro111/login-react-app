@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signupuUser } from "../../utils/fetch";
 
-const SignUp = ({ setUser, setLog }) => {
+const SignUp = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +26,6 @@ const SignUp = ({ setUser, setLog }) => {
     const data = await signupuUser(username, email, password);
     console.log(data);
     setUser(data.user);
-    setLog(true);
   };
 
   //
